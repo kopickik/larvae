@@ -1,6 +1,4 @@
-/bootstrap/compiled.php
-/vendor
-composer.phar
-composer.lock
+vendor
+public/app/bower_components
 .DS_Store
-Thumbs.db
+Laravel-Bower-Grunt

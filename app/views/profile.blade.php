@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="panel">
-        <p>Welcome, your email address is {{ Auth::user()->email }}</p>
+        <p>Welcome, {{ Auth::user()->username }}!</p>
+        <p>Your email address: {{ Auth::user()->email }}.</p>
     </div>
 @stop

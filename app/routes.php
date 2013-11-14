@@ -6,15 +6,36 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
+| Tell Laravel the URIs it should respond to
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+// ====================
+// STATIC PAGES =======
+// ====================
 
 Route::get('/', array('as' => 'home', function()
 {
 	return View::make('hello');
 }));
+
+// ====================
+// ANGULAR STUFF ======
+// ====================
+
+Route::get('angular', function()
+{
+    return View::make('index');
+});
+
+Route::group(array('prefix' => 'service'), function()
+{
+    Route::resource('authenticate', 'AngularAuthController');
+    Route::resource('movies', 'MovieController');
+});
+
+// End angular stuff
 
 Route::get('profile', function()
 {
@@ -32,3 +53,26 @@ Route::resource('questions', 'QuestionsController');
 // http://yoursite.com/tasks
 Route::get('tasks', 'TasksController@index');
 Route::get('tasks/{id}', 'TasksController@show')->where('id', '\d+');
+
+// Posts - AngularJS and pagination
+Route::get('posts', function() 
+{
+    return Post::paginate( $limit = 10 );
+});
+
+
+
+
+// ====================
+// 404 ================
+// ====================
+App::missing(function($exception) {
+    return Response::view('error', array(), 404);
+});
+
+
+
+
+
+
+

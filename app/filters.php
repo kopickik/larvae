@@ -33,6 +33,25 @@ App::after(function($request, $response)
 |
 */
 
+// ANGULAR FILTER STUFF
+Route::filter('serviceAuth', function()
+{
+    if(!Auth::check())
+    {
+        return Response::json([
+            'flash' => 'you must be logged in to access this URL.'
+            ], 401);
+    }
+});
+
+Route::filter('serviceCSRF', function(){
+    if (Session::token() != Request::header('csrf_token')) {
+        return Response::json([
+            'message' => 'I\'m a teapot !!! you stupid hacker :D'
+            ], 418);
+    }
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::guest('login');
