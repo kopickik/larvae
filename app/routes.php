@@ -60,8 +60,18 @@ Route::get('posts', function()
     return Post::paginate( $limit = 10 );
 });
 
+Event::listen('user.signup', function(User $user)
+{
+    // subscribe user to Mailchimp list
+    var_dump($user->toArray());
+});
 
-
+Route::get('pub', function()
+{
+    $user = User::first();
+    Event::fire('user.signup', ['user' =>$user]);
+    return 'firedRed';
+});
 
 // ====================
 // 404 ================

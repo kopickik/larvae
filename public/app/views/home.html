@@ -1,0 +1,23 @@
+<div class="alert" ng-show="flash" ng-bind="flash"></div>
+<h1>Angular Login home page</h1>
+<button class="btn btn-default" ng-click="profileLink()">My Profile</button>
+<button class="btn btn-default" ng-click="logout()">Log out</button>
+<table class="table table-striped">
+    <tr ng-repeat="movie in movies">
+        <td>
+            <img ng-src="{{movie.poster}}" alt="">
+        </td>
+        <td>
+            {{movie.title}}
+        </td>
+        <td>
+            {{movie.releaseDate | date}}
+        </td>
+        <td>
+            {{movie.genre}}
+        </td>
+        <td>
+            {{movie.synopsis}}
+        </td>
+    </tr>
+</table>
