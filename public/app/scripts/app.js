@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('larvae', [
+angular.module('.App', [
   'ngCookies',
   'ngResource',
   'ngSanitize'
@@ -13,6 +13,14 @@ angular.module('larvae', [
       })
       .when('/home', {
         templateUrl: 'app/views/home.html',
+        controller: 'homeController'
+      })
+      .when('/pfjwd', {
+        templateUrl: 'app/views/pfjwd.html',
+        controller: 'pfjwdController'
+      })
+      .when('/movies', {
+        templateUrl: 'app/views/movies.html',
         controller: 'homeController'
       })
       .otherwise({

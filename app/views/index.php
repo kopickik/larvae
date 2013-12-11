@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/styles/main.css">
 </head>
-<body ng-app="larvae">
+<body ng-app=".App">
     <div class="container" ng-view></div>
 
 <script src="app/bower_components/angular/angular.js"></script>
@@ -19,7 +19,7 @@
 <script src="app/scripts/filters.js"></script>
 <script src="app/scripts/services.js"></script>
 <script type="text/javascript">
-    angular.module("larvae").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
+    angular.module(".App").constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
 </script>
 </body>
 </html>

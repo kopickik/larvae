@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('larvae')
+angular.module('.App')
   .controller('loginController', function ($scope, $sanitize, $location, Authenticate, Flash) {
     $scope.login = function() {
         Authenticate.save({
@@ -30,7 +30,11 @@ angular.module('larvae')
             $location.path('/angular');
         });
     };
-    $scope.profileLink = function() {
-        $location.path('/profile');
-    };
+  })
+  .controller('HelloCtrl', function($scope, HelloWorld) {// deferred implementation
+    $scope.messages = HelloWorld.getMessages();
+  })
+  .controller('pfjwdController', function($scope, someDealie) {
+    $scope.messages = someDealie.getMessages();
   });
+

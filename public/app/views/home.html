@@ -1,8 +1,23 @@
 <div class="alert" ng-show="flash" ng-bind="flash"></div>
-<h1>Angular Login home page</h1>
+<h1>Angular Logged In Homepage</h1>
 <button class="btn btn-default" ng-click="profileLink()">My Profile</button>
 <button class="btn btn-default" ng-click="logout()">Log out</button>
+<div ng-controller="HelloCtrl">
+    <h1>Messages</h1>
+    <ul>
+        <li ng-repeat="message in messages">{{message}}</li>
+    </ul>
+</div>
 <table class="table table-striped">
+    <thead>
+        <tr>
+            <td><strong>Poster</strong></td>
+            <td><strong>Title</strong></td>
+            <td><strong>Release Date</strong></td>
+            <td><strong>Genre</strong></td>
+            <td><strong>Synopsis</strong></td>
+        </tr>
+    </thead>
     <tr ng-repeat="movie in movies">
         <td>
             <img ng-src="{{movie.poster}}" alt="">
